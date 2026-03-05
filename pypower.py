@@ -85,6 +85,29 @@ class Files:
             b.write(new_text.replace('\n\n', '\n'))
 class GUI:
     class CustomTk:
+        def show_hide_button(entry, show_ico="show", hide_ico='hide', hide_with="*"):
+            entry.configure(show=hide_with)
+            btn = _ctk.CTkButton(entry.master, text=show_ico, font=("arial", 20))
+            def change():
+                if entry.cget("show") == hide_with:
+                    entry.configure(show='')
+                    btn.configure(text=hide_ico)
+                else:
+                    entry.configure(show=hide_with)
+                    btn.configure(text=show_ico)
+            btn.configure(command=change)
+            return btn
+        def move(obj):
+            master = obj.master
+            master.update_idletasks()
+            x = obj.winfo_x()
+            y = obj.winfo_y()
+            obj.pack_forget()
+            obj.grid_forget()
+            obj.place(x=x, y=y)
+            width = obj.winfo_width()
+            height = obj.winfo_height()
+            obj.bind('<B1-Motion>', lambda e:obj.place(x=master.winfo_pointerx()-width//2, y=master.winfo_pointery()-height//2))
         def good_size(widgets):
             """resize widgets with the biggest size (height, width)"""
             width = [i.winfo_reqwidth() for i in widgets]
@@ -186,7 +209,7 @@ class String:
                 if int(i) in range(start, end+1):
                     a += i
         return bool(a)
-    def super_join(self, sep, after_how_many_letters, with_spaces=True):
+    def super_join(self, sep, after_how_many_letters):
         """Insert sep every after_how_many_letters characters in the string."""
         value = 0
         new = ''
@@ -196,8 +219,6 @@ class String:
             value += 1
             if value in ran:
                 new += sep
-        if not with_spaces:
-            new = new.replace(sep+' '+sep, sep+' ')
         return new
     def reverse(self, sep):
         """Reverse the order of parts split by sep. ex: 'a-b-c' -> 'c-b-a'"""
