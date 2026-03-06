@@ -8,6 +8,7 @@ This project is protected by the **Creative Commons BY-NC-SA 4.0** license.
 - ❌ **Commercial use or selling this code is STRICTLY PROHIBITED.**
 - 👤 **Author:** Mohammed (UsernamUsernam777)
 - 📅 **First Published:** 2026 (Check GitHub History for original timestamp evidence).
+
 A calculator in few lines!
 ```
 import customtkinter as ctk
@@ -20,7 +21,9 @@ data = GUI.CustomTk.console(root, ['+', '-', '*', '/', 'C', '='], entry_to_inser
 data['frame'].pack(pady=10)
 data['buttons'][4].configure(fg_color="red", command=lambda: entry.delete(0, 'end'))
 data['buttons'][5].configure(fg_color="green")
-root.mainloop()```
+root.mainloop()
+```
+
 
 
 https://github.com/user-attachments/assets/a7959006-5daa-44c1-bf18-084238fe2228
