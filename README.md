@@ -23,4 +23,5 @@ data['frame'].pack(pady=10)
 data['buttons'][4].configure(fg_color="red", command=lambda: entry.delete(0, 'end'))
 data['buttons'][5].configure(fg_color="green")
 root.mainloop()```
+
 https://github.com/user-attachments/assets/794de796-4692-4a1d-a6d5-f8a9ab3b2c1c
