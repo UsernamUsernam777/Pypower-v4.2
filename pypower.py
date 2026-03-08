@@ -100,6 +100,14 @@ class Files:
             b.write(new_text.replace('\n\n', '\n'))
 class GUI:
     class CustomTk:
+        def show_hide_message(master, message, text_color='red', font=('arial', 30), x=None, y=None, hide_after=1):
+            a = ctk.CTkLabel(master, text=message, font=font, text_color=text_color)
+            if x and y:
+                a.place(x=x, y=y)
+            else:
+                a.pack()
+            a.after(hide_after*1000, a.destroy)
+            return a
         def change_mode(master, light_icon='light', dark_icon='dark'):
             def c():
                 if ctk.get_appearance_mode() == 'Dark':
@@ -184,7 +192,7 @@ class GUI:
             return btn
         def move(obj):
             master = obj.master
-            def m():
+            def m(e):
                 x = obj.winfo_x()
                 y = obj.winfo_y()
                 obj.pack_forget()
@@ -192,8 +200,10 @@ class GUI:
                 obj.place(x=x, y=y)
                 width = obj.winfo_width()
                 height = obj.winfo_height()
-                master.after(1000, lambda: obj.bind('<B1-Motion>', lambda e:obj.place(x=master.winfo_pointerx()-width//2, y=master.winfo_pointery()-height//2)))
-            master.after(200, m)
+                mouse_x = master.winfo_pointerx() - master.winfo_rootx() - width//2
+                mouse_y = master.winfo_pointery() - master.winfo_rooty() - height//2
+                obj.place(x=mouse_x, y=mouse_y)
+            obj.bind('<B1-Motion>', m)
         def good_size(widgets):
             """resize widgets with the biggest size (height, width)"""
             def m():
