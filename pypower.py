@@ -316,14 +316,6 @@ class GUI:
 class String:
     def __init__(self, text):
         self.text = text
-    def there_is_a_number(self , start=0, end=9):
-        """Return True if the string contains any digit in range [start, end]."""
-        a = ''
-        for i in self.text:
-            if i.isdigit():
-                if int(i) in range(start, end+1):
-                    a += i
-        return bool(a)
     def super_join(self, sep, after_how_many_letters):
         """Insert sep every after_how_many_letters characters in the string."""
         value = 0
