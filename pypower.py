@@ -248,6 +248,7 @@ class GUI:
         def tidy_up(widgets, per_row, start_row=0, start_column=0, padx=5, pady=5):
             master = widgets[0].master
             def m():
+                nonlocal start_row
                 """
                 Arrange widgets in a grid with a fixed number per row.
                 """
