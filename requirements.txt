@@ -1,3 +1,2 @@
 customtkinter
 pyperclip
-deep_translator
