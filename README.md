@@ -1,9 +1,17 @@
-Target Audience:
-This library is specifically crafted for Python developers, automation enthusiasts, and data researchers who need to build high-quality interactive tools without the complexity of standard low-level frameworks.
+A powerful Python framework designed for:
 
-What it does:
-Provides a simplified layer for building modern, responsive desktop applications.
-Automates UI session management by remembering and restoring widget layouts and locations.
-Offers high-performance utilities for background file handling and system-level task management.
-Delivers professional-grade tools for deep data structure manipulation and iterable searching.
-Enables rapid deployment by providing built-in functions to compile scripts into standalone software.
+GUI & UI Management: Advanced tools for building modern interfaces, including dynamic tables, character counters, and password visibility toggles.
+
+UI Automation & Persistence: High-level Manager for recording and restoring the exact coordinates and layouts of all interface elements.
+
+Data Iterables: Professional utilities for deep dictionary manipulation, multi-key grouping, and recursive list flattening.
+
+String Engineering: Specialized methods for pattern extraction (between markers), mass replacement, and structural string joining.
+
+Threaded Background Tasks: Built-in support for executing UI messages and file operations in background threads to prevent interface freezing.
+
+Math & Numbers: Reliable functions for numeric validation (int/float check) and statistical analysis of data collections.
+
+Time Operations: Precision tools for converting seconds to standard formats and calculating absolute differences between time strings.
+
+System Automation: Fully automated script-to-executable (EXE) conversion with integrated build cleanup.
