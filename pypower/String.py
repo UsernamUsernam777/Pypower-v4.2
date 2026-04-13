@@ -1,4 +1,4 @@
-from . import Iterable
+from . import Iterable as _Iterable
 def super_join(text, sep, after_how_many_letters):
     """Insert sep every after_how_many_letters characters in the string."""
     value = 0
@@ -27,7 +27,7 @@ def replace_many(text, old_iterable, new_iterable):
 def between(text, c1, c2, first=True, last=True):
     """return string between two points"""
     result = []
-    index = [Iterable.indexes(text, c1), Iterable.indexes(text, c2)]
+    index = [_Iterable.indexes(text, c1), _Iterable.indexes(text, c2)]
     for i, e in zip(index[0], index[1]):
         if not first:
             i += 1
@@ -37,7 +37,9 @@ def between(text, c1, c2, first=True, last=True):
     return result
 def line_if_in(text, string):
     result = []
-    for i in text.split('\n'):
-        if string in i:
-            result.append(i)
+    texts = text.split('\n')
+    def is_in(t):
+        if string in t:
+            result.append(t)
+    list(map(is_in, texts))
     return result
